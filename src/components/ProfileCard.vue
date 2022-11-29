@@ -51,7 +51,7 @@ const changeTab = () => {
 <style>
     .member:hover,
     .member-active {
-        @apply !bg-green-300
+        @apply !bg-indigo-300 scale-110 
     }
 
     .member-active h4,
@@ -63,13 +63,17 @@ const changeTab = () => {
     .member-active:hover h4 {
         @apply !text-gray-100
     }
-
-    .members {
-        @apply w-64
-    }
-
+    
     .member {
-        @apply flex p-3 rounded-lg mb-3 cursor-pointer drop-shadow-md hover:drop-shadow-xl
+        @apply 
+            flex p-3 rounded-lg 
+            mb-3 
+            cursor-pointer 
+            drop-shadow-md 
+            delay-75 
+            transition ease-in-out 
+            hover:drop-shadow-xl 
+            duration-300
     }
 
     .member:hover span,
@@ -78,11 +82,11 @@ const changeTab = () => {
     }
 
     .member h4 {
-        @apply text-sm text-gray-900 font-medium -mb-1
+        @apply text-sm text-gray-900 font-medium -mb-1 transition ease-in-out delay-150
     }
 
     .member span {
-        @apply text-xs text-gray-600
+        @apply text-xs text-gray-600 transition ease-in-out delay-150
     }
 
     .profile-img-container {

@@ -9,7 +9,13 @@ export const useTodos = () => {
         const data = [
             { id: 1, name: 'todo 1', status: false },
             { id: 2, name: 'todo 2', status: true },
-            { id: 3, name: 'todo 3', status: true }
+            { id: 3, name: 'todo 3', status: true },
+            { id: 4, name: 'todo 4', status: true },
+            { id: 5, name: 'todo 5', status: true },
+            { id: 6, name: 'todo 6', status: true },
+            { id: 7, name: 'todo 7', status: true },
+            { id: 8, name: 'todo 8', status: true },
+            { id: 9, name: 'todo 9', status: true },
         ];
 
         state.todos = data;

@@ -1,6 +1,8 @@
 
 <template>
-    <RouterView />
+    <div class="container">
+        <RouterView />
+    </div>
 </template>
 
 <script setup>
@@ -22,6 +24,10 @@
 <style>
     body {
         @apply bg-purple-100
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        @apply font-roboto
     }
 
     #app {
