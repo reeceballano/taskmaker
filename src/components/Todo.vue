@@ -48,13 +48,15 @@
 
     .task-item {
         @apply 
-            py-3 
+            p-3 
             border-b-2
             mb-3 
             delay-75 
             transition ease-in-out 
             hover:drop-shadow-xl 
             duration-300
+            hover:scale-105
+            hover:bg-green-50
     }
 
     .task-item h4 {

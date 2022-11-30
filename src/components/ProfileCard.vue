@@ -51,7 +51,7 @@ const changeTab = () => {
 <style>
     .member:hover,
     .member-active {
-        @apply !bg-indigo-300 scale-110 
+        @apply !bg-green-300 scale-110 
     }
 
     .member-active h4,
