@@ -5,9 +5,9 @@
                 <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
             </div>
             <div class="col-span-3">
-                <h4>{{todo.name}}</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
-                <span>Assigned to: Pepito Manaloto</span>
+                <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
+                <p :class="todo.status ? 'is-completed' : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
+                <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
                 <button @click="updateTodo(todo.id)">Update</button>
                 <button @click="deleteTodo(todo.id)">Delete</button>
             </div>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-    import { inject } from 'vue';
+    import { computed, inject } from 'vue';
     import Checkbox from './Checkbox.vue';
 
     const { todo } = defineProps({
@@ -36,6 +36,10 @@
 </script>
 
 <style>
+    .is-completed {
+        @apply line-through opacity-50
+    }
+
     .task-item {
         @apply 
             py-3 
