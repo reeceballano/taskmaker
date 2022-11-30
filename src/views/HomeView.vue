@@ -44,7 +44,7 @@
     import ProfileCard from '../components/ProfileCard.vue';
 
     const todos = computed(() => {
-        return data.value.splice(0,3);
+        return data.value;
     })
 
     const data = inject('todos');

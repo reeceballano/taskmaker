@@ -2,8 +2,7 @@
     <div class="task-item">
         <div class="flex gap-4">
             <div class="col-span">
-                <input type="radio" checked="checked" name="radio" id="radio-one"
-                class="w-5 h-5 bg-pink-300 checked:bg-rose-500 cursor-pointer" />
+                <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
             </div>
             <div class="col-span-3">
                 <h4>{{todo.name}}</h4>
@@ -18,6 +17,7 @@
 
 <script setup>
     import { inject } from 'vue';
+    import Checkbox from './Checkbox.vue';
 
     const { todo } = defineProps({
         todo: {
