@@ -1,10 +1,18 @@
 <template>
     <div class="task-item">
-        <h4>{{todo.name}}</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
-        <span>Assigned to: Pepito Manaloto</span>
-        <button @click="updateTodo(todo.id)">Update</button>
-        <button @click="deleteTodo(todo.id)">Delete</button>
+        <div class="flex gap-4">
+            <div class="col-span">
+                <input type="radio" checked="checked" name="radio" id="radio-one"
+                class="w-5 h-5 bg-pink-300 checked:bg-rose-500 cursor-pointer" />
+            </div>
+            <div class="col-span-3">
+                <h4>{{todo.name}}</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
+                <span>Assigned to: Pepito Manaloto</span>
+                <button @click="updateTodo(todo.id)">Update</button>
+                <button @click="deleteTodo(todo.id)">Delete</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -41,11 +49,11 @@
     }
 
     .task-item h4 {
-        @apply text-sm text-gray-900 font-medium -mb-1 transition ease-in-out delay-150 uppercase
+        @apply text-sm text-slate-900 font-semibold -mb-1 transition ease-in-out delay-150 uppercase
     }
 
     .task-item p {
-        @apply text-sm my-2
+        @apply text-sm my-2 text-slate-500
     }
 
     .task-item span {
