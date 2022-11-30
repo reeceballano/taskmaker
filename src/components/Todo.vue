@@ -7,9 +7,14 @@
             <div class="col-span-3">
                 <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
                 <p :class="todo.status ? 'is-completed' : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
-                <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
-                <button @click="updateTodo(todo.id)">Update</button>
-                <button @click="deleteTodo(todo.id)">Delete</button>
+                <div class="actions grid grid-cols-2">
+                    <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
+
+                    <div class="justify-self-end">
+                        <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -18,6 +23,7 @@
 <script setup>
     import { computed, inject } from 'vue';
     import Checkbox from './Checkbox.vue';
+    import DeleteIcon from './DeleteIcon.vue';
 
     const { todo } = defineProps({
         todo: {
@@ -45,7 +51,6 @@
             py-3 
             border-b-2
             mb-3 
-            cursor-pointer 
             delay-75 
             transition ease-in-out 
             hover:drop-shadow-xl 
@@ -53,7 +58,7 @@
     }
 
     .task-item h4 {
-        @apply text-sm text-slate-900 font-semibold -mb-1 transition ease-in-out delay-150 uppercase
+        @apply text-sm text-slate-900 font-semibold -mb-1 transition ease-in-out delay-150 uppercase cursor-pointer 
     }
 
     .task-item p {
@@ -61,6 +66,6 @@
     }
 
     .task-item span {
-        @apply text-xs font-semibold
+        @apply text-xs font-semibold cursor-pointer
     }
 </style>
