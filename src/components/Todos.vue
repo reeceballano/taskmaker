@@ -9,6 +9,7 @@
 
 <style>
     .task-list {
-        @apply w-full
+        @apply p-5
+        /* @apply w-full p-10 bg-white align-middle rounded-lg drop-shadow-2xl */
     }
 </style>

@@ -44,7 +44,7 @@
     import ProfileCard from '../components/ProfileCard.vue';
 
     const todos = computed(() => {
-        return data.value;
+        return data.value.splice(0,3);
     })
 
     const data = inject('todos');
@@ -72,10 +72,15 @@
     }
 
     .section-title {
-        @apply text-xl font-semibold mb-8 text-gray-600
+        @apply text-lg font-semibold text-gray-600 p-5 border-b
     }
 
     .home-view {
-        @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl
+        @apply flex container space-x-20 align-middle my-10
+        /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
+    }
+
+    .tasks {
+        @apply w-full bg-white align-middle rounded-lg drop-shadow-2xl
     }
 </style>
