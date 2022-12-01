@@ -10,6 +10,6 @@
 
 <style>
     .members {
-        @apply w-2/3
+        @apply md:w-2/3 w-full
     }
 </style>

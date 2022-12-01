@@ -66,6 +66,7 @@ const changeTab = () => {
     
     .member {
         @apply 
+            w-full
             flex p-3 rounded-lg 
             mb-3 
             cursor-pointer 

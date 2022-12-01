@@ -76,7 +76,7 @@
     }
 
     .home-view {
-        @apply flex container space-x-20 align-middle my-10
+        @apply md:flex container md:space-x-20 align-middle my-10
         /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
     }
 
