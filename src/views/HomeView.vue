@@ -2,19 +2,12 @@
 <template>
     <div class="home-view">
         <Sidebar>
-            <Widget title="Members">
-                <Profiles>
-                    <ProfileCard 
-                        v-for="(user) in users"
-                        :key="user.id"
-                        :user="user" 
-                        background="bg-gray-100"
-                        @changeTab="changeTab"
-                    />
-                </Profiles>
+            <Widget title="Add new task">
+                <Input id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
+                <Button @handleOnclick="addTask" text="Add task" />
             </Widget>
 
-            <Widget title="Add new task">
+            <Widget title="Members">
                 <Profiles>
                     <ProfileCard 
                         v-for="(user) in users"
@@ -41,7 +34,6 @@
                     />
                 </TransitionGroup>
             </Todos>
-
         </div>
         <!-- <Todos /> -->
     </div>
@@ -56,6 +48,8 @@
     import ProfileCard from '../components/ProfileCard.vue';
     import Sidebar from '../components/Sidebar.vue';
     import Widget from '../components/Widget.vue';
+    import Input from '../components/Input.vue';
+    import Button from '../components/Button.vue';
 
     const todos = computed(() => {
         return data.value;
@@ -67,6 +61,8 @@
 
     provide('tab', activeTab);
 
+    const newTodo = ref('');
+
     const users = [
         {id: 1, name: 'Pepito Manaloto', position: 'Frontend Developer' },
         {id: 2, name: 'Maria Smith', position: 'Designer' },
@@ -77,6 +73,10 @@
         console.log('current id', id);
         activeTab.value = id;
         console.log('activeTab', activeTab.value)
+    }
+
+    const addTask = (task) => {
+        console.log('new task', newTodo.value);
     }
 </script>
 
