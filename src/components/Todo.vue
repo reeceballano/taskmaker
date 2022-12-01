@@ -56,7 +56,7 @@
             hover:drop-shadow-xl 
             duration-300
             hover:scale-105
-            hover:bg-green-50
+            hover:bg-blue-50
     }
 
     .task-item h4 {

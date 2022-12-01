@@ -51,7 +51,7 @@ const changeTab = () => {
 <style>
     .member:hover,
     .member-active {
-        @apply !bg-green-300 scale-110 
+        @apply !bg-sky-300 scale-105 
     }
 
     .member-active h4,
@@ -74,7 +74,7 @@ const changeTab = () => {
             delay-75 
             transition ease-in-out 
             hover:drop-shadow-xl 
-            duration-300
+            duration-700
     }
 
     .member:hover span,

@@ -68,7 +68,7 @@
 
 <style>
     .sticky-sidebar {
-        @apply sticky top-0 z-30
+        @apply sticky top-0 z-30 w-full bg-white align-middle rounded-lg drop-shadow-2xl
     }
 
     .section-title {
@@ -76,7 +76,7 @@
     }
 
     .home-view {
-        @apply md:flex container md:space-x-20 align-middle my-10
+        @apply md:flex container md:space-x-10 align-middle my-20
         /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
     }
 
