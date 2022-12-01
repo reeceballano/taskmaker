@@ -43,7 +43,7 @@
 
 <style>
     .is-completed {
-        @apply line-through opacity-50
+        @apply line-through opacity-50 transition ease-in-out delay-75 duration-300
     }
 
     .task-item {
