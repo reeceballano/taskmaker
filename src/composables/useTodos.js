@@ -7,14 +7,14 @@ export const useTodos = () => {
 
     const fetchTodos = () => {
         const data = [
-            { id: 1, name: 'todo 1', status: false },
-            { id: 2, name: 'todo 2', status: true },
-            { id: 3, name: 'todo 3', status: true },
-            { id: 4, name: 'todo 4', status: true },
-            { id: 5, name: 'todo 5', status: true },
-            { id: 6, name: 'todo 6', status: true },
-            { id: 7, name: 'todo 7', status: true },
-            { id: 8, name: 'todo 8', status: true },
+            { id: 1, name: 'todo 1', status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
+            { id: 2, name: 'todo 2', status: true, description: 'Ethical ennui paleo aliquip wayfarers keytar culpa esse sriracha hammock duis.' },
+            { id: 3, name: 'todo 3', status: true, description: 'Adaptogen plaid synth etsy cardigan selvage' },
+            { id: 4, name: 'todo 4', status: true, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
+            { id: 5, name: 'todo 5', status: true, description: 'Kombucha gatekeep aesthetic DIY cillum qui shoreditch, 3 wolf moon hella hashtag ullamco cred.' },
+            { id: 6, name: 'todo 6', status: true, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 7, name: 'todo 7', status: true, description: 'Intelligentsia tempor you probably haven\'t heard of them actually.' },
+            { id: 8, name: 'todo 8', status: true, description: 'Cupidatat farm-to-table proident single-origin coffee mollit kickstarter blue bottle taxidermy.' },
             { id: 9, name: 'todo 9', status: true },
         ];
 

@@ -1,20 +1,18 @@
 <template>
     <div class="task-item">
         <div class="flex gap-4">
-            <div class="col-span">
+            <div>
                 <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
             </div>
-            <div class="col-span-3">
-                <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
-                <p :class="todo.status ? 'is-completed' : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique rerum ex modi voluptate cupiditate dolor dolore sapiente corrupti ipsum, maiores saepe quasi ipsa, quisquam atque nam optio ea facere nihil.</p>
-                <div class="actions grid grid-cols-2">
+            <div class="flex-1">
+                <div class="info-container">
+                    <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
+                    <p :class="todo.status ? 'is-completed' : ''">{{description}}</p>
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
-
-                    <div class="justify-self-end">
-                        <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
-                    </div>
                 </div>
-
+            </div>
+            <div>
+                <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
             </div>
         </div>
     </div>
@@ -38,6 +36,11 @@
     const deleteTodo = inject('deleteTodo');
 
     const updateTodo = inject('updateTodo');
+
+    const description = computed(() => {
+        if(todo.description) { return todo.description }
+        return 'no description'
+    })
     
 </script>
 
@@ -49,6 +52,7 @@
     .task-item {
         @apply 
             p-3 
+            w-full
             border-b-2
             mb-3 
             delay-75 
@@ -60,11 +64,11 @@
     }
 
     .task-item h4 {
-        @apply text-sm text-slate-900 font-semibold -mb-1 transition ease-in-out delay-150 uppercase cursor-pointer 
+        @apply block w-full text-sm text-slate-900 font-semibold -mb-1 transition ease-in-out delay-150 uppercase cursor-pointer 
     }
 
     .task-item p {
-        @apply text-sm my-2 text-slate-500
+        @apply text-sm my-2 text-slate-500 w-full
     }
 
     .task-item span {
