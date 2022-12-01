@@ -23,11 +23,13 @@
                 Tasks
             </h2>
             <Todos>
-                <Todo 
-                    v-for="todo in todos"
-                    :key="todo.id"
-                    :todo="todo"
-                />
+                <TransitionGroup name="fade">
+                    <Todo 
+                        v-for="todo in todos"
+                        :key="todo.id"
+                        :todo="todo"
+                    />
+                </TransitionGroup>
             </Todos>
 
         </div>
@@ -68,7 +70,7 @@
 
 <style>
     .sticky-sidebar {
-        @apply sticky top-0 z-30 w-full bg-white align-middle rounded-lg drop-shadow-2xl
+        @apply md:sticky md:top-5 z-30 w-full bg-white align-middle rounded-lg drop-shadow-2xl
     }
 
     .section-title {
@@ -82,5 +84,15 @@
 
     .tasks {
         @apply w-full bg-white align-middle rounded-lg drop-shadow-2xl
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
     }
 </style>
