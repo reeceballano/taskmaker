@@ -43,10 +43,6 @@
         if(todo.description) { return todo.description }
         return 'no description'
     })
-
-    const showDelete = () => {
-        isShow.value = !isShow.value;
-    }   
     
 </script>
 

@@ -12,4 +12,8 @@
         @apply p-5 w-full
         /* @apply w-full p-10 bg-white align-middle rounded-lg drop-shadow-2xl */
     }
+
+    .tasks {
+        @apply w-full bg-white align-middle rounded-lg drop-shadow-2xl
+    }
 </style>

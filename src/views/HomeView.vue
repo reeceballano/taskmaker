@@ -1,11 +1,8 @@
 
 <template>
     <div class="home-view">
-        <div class="members">
-            <div class="sticky-sidebar">
-                <h2 class="section-title">
-                    Members
-                </h2>
+        <Sidebar>
+            <Widget title="Members">
                 <Profiles>
                     <ProfileCard 
                         v-for="(user) in users"
@@ -15,8 +12,21 @@
                         @changeTab="changeTab"
                     />
                 </Profiles>
-            </div>
-        </div>
+            </Widget>
+
+            <Widget title="Add new task">
+                <Profiles>
+                    <ProfileCard 
+                        v-for="(user) in users"
+                        :key="user.id"
+                        :user="user" 
+                        background="bg-gray-100"
+                        @changeTab="changeTab"
+                    />
+                </Profiles>
+            </Widget>
+        </Sidebar>
+
 
         <div class="tasks">
             <h2 class="section-title">
@@ -44,6 +54,8 @@
     import Todo from '../components/Todo.vue';
     import Profiles from '../components/Profiles.vue';
     import ProfileCard from '../components/ProfileCard.vue';
+    import Sidebar from '../components/Sidebar.vue';
+    import Widget from '../components/Widget.vue';
 
     const todos = computed(() => {
         return data.value;
@@ -69,10 +81,6 @@
 </script>
 
 <style>
-    .sticky-sidebar {
-        @apply md:sticky md:top-5 z-30 w-full bg-white align-middle rounded-lg drop-shadow-2xl
-    }
-
     .section-title {
         @apply text-lg font-semibold text-gray-600 p-5 border-b
     }
@@ -80,10 +88,6 @@
     .home-view {
         @apply md:flex container md:space-x-10 align-middle my-20
         /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
-    }
-
-    .tasks {
-        @apply w-full bg-white align-middle rounded-lg drop-shadow-2xl
     }
 
     .fade-enter-active,
