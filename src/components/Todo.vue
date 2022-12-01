@@ -1,5 +1,5 @@
 <template>
-    <div class="task-item">
+    <div @mouseover="(isShow = true)" @mouseout="isShow = false" class="task-item">
         <div class="flex gap-4">
             <div>
                 <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
@@ -11,7 +11,7 @@
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
                 </div>
             </div>
-            <div>
+            <div v-show="isShow">
                 <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
             </div>
         </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-    import { computed, inject } from 'vue';
+    import { ref, computed, inject } from 'vue';
     import Checkbox from './Checkbox.vue';
     import DeleteIcon from './DeleteIcon.vue';
 
@@ -37,10 +37,16 @@
 
     const updateTodo = inject('updateTodo');
 
+    const isShow = ref(false);
+
     const description = computed(() => {
         if(todo.description) { return todo.description }
         return 'no description'
     })
+
+    const showDelete = () => {
+        isShow.value = !isShow.value;
+    }   
     
 </script>
 
