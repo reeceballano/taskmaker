@@ -8,7 +8,7 @@
                 <div class="info-container">
                     <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
                     <p :class="todo.status ? 'is-completed' : ''">{{description}}</p>
-                    <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
+                    <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
                 </div>
             </div>
 
