@@ -43,7 +43,7 @@ const currentTab = computed(() => {
 const emits = defineEmits(['changeTab']);
 
 const changeTab = () => {
-    emits('changeTab', user.id);
+    emits('changeTab', user);
 }
 
 </script>

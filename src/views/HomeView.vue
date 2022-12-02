@@ -54,11 +54,15 @@
     import Loadmore from '../components/Loadmore.vue';
 
     const todos = computed(() => {
-        return data.value.sort((a,b)=>{
-            return new Date(b.created_at) - new Date(a.created_at);
-        });;
+        if(activeMember.value === '') {
+            console.log('no member selected')
+            return data.value.sort((a,b)=>{
+                return new Date(b.created_at) - new Date(a.created_at);
+            });
+        } else {
+            return data.value.filter(i => i.assignee == activeMember.value);
+        }
     })
-
     
     const data = inject('todos');
     const addTodo = inject('addTodo');
@@ -70,6 +74,7 @@
 
     const newTodo = ref('');
     const isDisabled = ref(true);
+    const activeMember = ref('');
 
     watch(newTodo, () => {
         if(Number(newTodo.value.length) >= 3) { 
@@ -80,15 +85,16 @@
     })
 
     const users = [
-        {id: 1, name: 'Pepito Manaloto', position: 'Frontend Developer' },
-        {id: 2, name: 'Maria Smith', position: 'Designer' },
-        {id: 3, name: 'Ben Ten', position: 'Backend Developer' },
+        {id: 1, name: 'Pepito', position: 'Frontend Developer' },
+        {id: 2, name: 'Maria', position: 'Designer' },
+        {id: 3, name: 'Ben', position: 'Backend Developer' },
     ]
 
-    const changeTab = (id) => {
-        console.log('current id', id);
-        activeTab.value = id;
-        console.log('activeTab', activeTab.value)
+    const changeTab = (user) => {
+        activeTab.value = user.id;
+        
+        // CALL FILTER FUNCTION
+        filterTask(user.name);
     }
 
     const addTask = () => {
@@ -100,6 +106,11 @@
 
     const focusInput = () => {
         document.getElementById('newTodo').focus();
+    }
+
+    const filterTask = (name) => {
+        console.log('filter task for', name)
+        activeMember.value = name;
     }
 
 </script>
