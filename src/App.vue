@@ -39,19 +39,16 @@
         @apply text-lg font-semibold text-gray-600 p-5 border-b
     }
 
-    .fade-enter-active,
-    .fade-leave-active {
-        animation: fadein 0.5s;
+    /*  TODO ITEM ANIMATION */
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 1s ease;
     }
 
-    .fade-enter-from,
-    .fade-leave-to {
+    .list-enter-from,
+    .list-leave-to {
         opacity: 0;
+        transform: translateY(30px);
     }
-
-    @keyframes fadein {
-		from {opacity: 0;}
-		to   {opacity: 1;}
-	}
 
 </style>

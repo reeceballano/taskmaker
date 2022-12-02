@@ -1,5 +1,5 @@
 <template>
-    <div @mouseover="(isShow = true)" @mouseout="isShow = false" class="task-item">
+    <li @mouseover="(isShow = true)" @mouseout="isShow = false" class="task-item">
         <div class="flex gap-4">
             <div>
                 <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
@@ -16,7 +16,7 @@
                 <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
             </div>
         </div>
-    </div>
+    </li>
 </template>
 
 <script setup>
@@ -62,7 +62,7 @@
             transition ease-in-out 
             hover:drop-shadow-xl 
             duration-300
-            hover:scale-105
+            /* hover:scale-105 */
             hover:bg-blue-50
     }
 

@@ -26,13 +26,13 @@
                 Tasks
             </h2>
             <Todos>
-                <TransitionGroup name="slide">
+                <transition-group name="list" tag="ul">
                     <Todo 
                         v-for="todo in todos"
                         :key="todo.id"
                         :todo="todo"
                     />
-                </TransitionGroup>
+                </transition-group>
             </Todos>
         </div>
         <!-- <Todos /> -->
@@ -61,6 +61,8 @@
     const data = inject('todos');
     
     const addTodo = inject('addTodo');
+
+    const deleteTodo = inject('deleteTodo');
         
     const activeTab = ref(0);
 
