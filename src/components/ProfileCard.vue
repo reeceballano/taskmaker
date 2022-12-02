@@ -33,8 +33,8 @@ const activeTab = inject('tab');
 
 const currentTab = computed(() => {
     if(Number(activeTab.value) == 0) { 
-        //FORCE TO SET THE FIRST TAB TO BE ACTIVE
-        return 1 
+        //FORCE TO SET THE FIRST TAB TO BE ACTIVE CHANGE TO 1
+        return 0
     } else {
         return activeTab.value;
     }
