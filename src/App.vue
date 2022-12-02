@@ -10,11 +10,12 @@
     import { RouterLink, RouterView } from 'vue-router';
     import { useTodos } from './composables/useTodos';
     
-    const { todos, fetchTodos, deleteTodo, updateTodo } = useTodos();
+    const { todos, fetchTodos, deleteTodo, updateTodo, addTodo } = useTodos();
 
     provide('todos', todos);
     provide('deleteTodo', deleteTodo);
     provide('updateTodo', updateTodo);
+    provide('addTodo', addTodo);
 
     onMounted(() => {
         fetchTodos();

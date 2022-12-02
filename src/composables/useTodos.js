@@ -21,6 +21,18 @@ export const useTodos = () => {
         state.todos = data;
     }
 
+    const addTodo = (name, desc = '') => {
+        console.log('adding new todo');
+        const todo = {
+            id: state.todos.length + 1,
+            name: name,
+            description: desc,
+            status: false
+        }
+
+        state.todos.push({...todo});
+    }
+
     const deleteTodo = (id) => {
         console.log('deleting todo ', id)
         const newTodos = state.todos.filter(todo => todo.id !== id);
@@ -39,6 +51,7 @@ export const useTodos = () => {
         ...toRefs(state),
         fetchTodos,
         deleteTodo,
-        updateTodo
+        updateTodo,
+        addTodo
     }
 }

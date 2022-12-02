@@ -55,10 +55,13 @@
         return data.value;
     })
 
+    
     const data = inject('todos');
-
+    
+    const addTodo = inject('addTodo');
+        
     const activeTab = ref(0);
-
+    
     provide('tab', activeTab);
 
     const newTodo = ref('');
@@ -75,8 +78,8 @@
         console.log('activeTab', activeTab.value)
     }
 
-    const addTask = (task) => {
-        console.log('new task', newTodo.value);
+    const addTask = () => {
+        addTodo(newTodo.value);
     }
 </script>
 
