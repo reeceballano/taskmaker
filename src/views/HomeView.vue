@@ -26,7 +26,7 @@
                 Tasks
             </h2>
             <Todos>
-                <TransitionGroup name="fade">
+                <TransitionGroup name="slide">
                     <Todo 
                         v-for="todo in todos"
                         :key="todo.id"
@@ -81,22 +81,8 @@
 </script>
 
 <style>
-    .section-title {
-        @apply text-lg font-semibold text-gray-600 p-5 border-b
-    }
-
     .home-view {
         @apply md:flex container md:space-x-10 align-middle my-20
         /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
-    }
-
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 0.5s ease;
-    }
-
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
     }
 </style>

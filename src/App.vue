@@ -33,4 +33,24 @@
     #app {
         @apply grid place-items-center h-screen
     }
+
+    .section-title {
+        @apply text-lg font-semibold text-gray-600 p-5 border-b
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        animation: fadein 0.5s;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    @keyframes fadein {
+		from {opacity: 0;}
+		to   {opacity: 1;}
+	}
+
 </style>

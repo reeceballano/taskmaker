@@ -11,6 +11,7 @@
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: Pepito Manaloto</span>
                 </div>
             </div>
+
             <div v-show="isShow">
                 <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
             </div>
