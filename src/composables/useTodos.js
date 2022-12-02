@@ -15,6 +15,8 @@ export const useTodos = () => {
             { id: 4, name: 'todo 4', assignee: 'Ben', created_at: useDate(4, yesterday()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
             { id: 5, name: 'todo 5', assignee: 'Ben', created_at: useDate(5, yesterday()), status: true, description: 'Kombucha gatekeep aesthetic DIY cillum qui shoreditch, 3 wolf moon hella hashtag ullamco cred.' },
             { id: 6, name: 'todo 6', assignee: 'Maria', created_at: useDate(6, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 7, name: 'todo 7', assignee: 'Maria', created_at: useDate(7, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 8, name: 'todo 8', assignee: 'Maria', created_at: useDate(8, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
         ];
 
         state.todos = data;
