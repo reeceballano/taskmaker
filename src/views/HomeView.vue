@@ -83,6 +83,7 @@
     }
 
     const addTask = () => {
+        if(!newTodo.value.length) { return }
         addTodo(newTodo.value);
         newTodo.value = '';
         focusInput();
