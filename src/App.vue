@@ -10,12 +10,13 @@
     import { RouterLink, RouterView } from 'vue-router';
     import { useTodos } from './composables/useTodos';
     
-    const { todos, fetchTodos, deleteTodo, updateTodo, addTodo } = useTodos();
+    const { todos, fetchTodos, deleteTodo, updateTodo, addTodo, infiniteLoop } = useTodos();
 
     provide('todos', todos);
     provide('deleteTodo', deleteTodo);
     provide('updateTodo', updateTodo);
     provide('addTodo', addTodo);
+    provide('infiniteLoop', infiniteLoop)
 
     onMounted(() => {
         fetchTodos();
@@ -32,7 +33,7 @@
     }
 
     #app {
-        @apply grid place-items-center h-screen
+        @apply grid place-items-center h-full overflow-scroll
     }
 
     .section-title {

@@ -34,6 +34,7 @@
                     />
                 </transition-group>
             </Todos>
+            <Loadmore @handle-click="infiniteLoop" />
         </div>
         <!-- <Todos /> -->
     </div>
@@ -50,6 +51,7 @@
     import Widget from '../components/Widget.vue';
     import Input from '../components/Input.vue';
     import Button from '../components/Button.vue';
+    import Loadmore from '../components/Loadmore.vue';
 
     const todos = computed(() => {
         return data.value.sort((a,b)=>{
@@ -61,6 +63,7 @@
     const data = inject('todos');
     const addTodo = inject('addTodo');
     const deleteTodo = inject('deleteTodo');
+    const infiniteLoop = inject('infiniteLoop');
     const activeTab = ref(0);
 
     provide('tab', activeTab);

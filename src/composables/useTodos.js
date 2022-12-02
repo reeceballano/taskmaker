@@ -4,6 +4,7 @@ import { useDate, yesterday } from '../utils/useDate';
 export const useTodos = () => {
     const state = reactive({
         todos: [],
+        isLoading: false
     })
 
     const fetchTodos = () => {
@@ -11,15 +12,23 @@ export const useTodos = () => {
             { id: 1, name: 'todo 1', assignee: 'Pepito', created_at: useDate(1, yesterday()), status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
             { id: 3, name: 'todo 3', assignee: 'Maria', created_at: useDate(3, yesterday()), status: true, description: 'Adaptogen plaid synth etsy cardigan selvage' },
             { id: 2, name: 'todo 2', assignee: 'Pepito', created_at: useDate(2, yesterday()), status: true, description: 'Ethical ennui paleo aliquip wayfarers keytar culpa esse sriracha hammock duis.' },
-            { id: 4, name: 'todo 4', assignee: 'Ben', created_at: useDate(4, yesterday()), status: true, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
+            { id: 4, name: 'todo 4', assignee: 'Ben', created_at: useDate(4, yesterday()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
             { id: 5, name: 'todo 5', assignee: 'Ben', created_at: useDate(5, yesterday()), status: true, description: 'Kombucha gatekeep aesthetic DIY cillum qui shoreditch, 3 wolf moon hella hashtag ullamco cred.' },
-            { id: 6, name: 'todo 6', assignee: 'Maria', created_at: useDate(6, yesterday()), status: true, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
-            { id: 7, name: 'todo 7', assignee: 'Juan', created_at: useDate(7, yesterday()), status: true, description: 'Intelligentsia tempor you probably haven\'t heard of them actually.' },
-            { id: 8, name: 'todo 8', assignee: 'Mayang', created_at: useDate(8, yesterday()), status: true, description: 'Cupidatat farm-to-table proident single-origin coffee mollit kickstarter blue bottle taxidermy.' },
-            { id: 9, name: 'todo 9', assignee: 'Totoy', created_at: useDate(9, yesterday()), status: true },
+            { id: 6, name: 'todo 6', assignee: 'Maria', created_at: useDate(6, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
         ];
 
         state.todos = data;
+    }
+
+    const infiniteLoop = () => {
+        const newData = { id: `${new Date()}`, name: `Todo ${state.todos.length + 1}`, assignee: 'Pepito', created_at: useDate(new Date()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' }
+
+        state.isLoading = true;
+        setTimeout(() => {
+            console.log('loading more...')
+            state.isLoading = false;
+            state.todos.push(newData);
+        },1000);
     }
 
     const addTodo = (name, desc = '') => {
@@ -55,6 +64,7 @@ export const useTodos = () => {
         fetchTodos,
         deleteTodo,
         updateTodo,
-        addTodo
+        addTodo,
+        infiniteLoop
     }
 }
