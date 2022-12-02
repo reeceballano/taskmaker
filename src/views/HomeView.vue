@@ -68,6 +68,8 @@
 
     const newTodo = ref('');
 
+    const focus = ref(null);
+
     const users = [
         {id: 1, name: 'Pepito Manaloto', position: 'Frontend Developer' },
         {id: 2, name: 'Maria Smith', position: 'Designer' },
@@ -82,7 +84,14 @@
 
     const addTask = () => {
         addTodo(newTodo.value);
+        newTodo.value = '';
+        focusInput();
     }
+
+    const focusInput = () => {
+        document.getElementById('newTodo').focus();
+    }
+
 </script>
 
 <style>
