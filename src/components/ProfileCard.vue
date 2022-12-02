@@ -74,7 +74,7 @@ const changeTab = () => {
             delay-75 
             transition ease-in-out 
             hover:drop-shadow-xl 
-            duration-700
+            duration-150
     }
 
     .member:hover span,
@@ -83,11 +83,11 @@ const changeTab = () => {
     }
 
     .member h4 {
-        @apply text-sm text-gray-900 font-medium -mb-1 transition ease-in-out delay-150
+        @apply text-sm text-gray-900 font-medium -mb-1 transition ease-in-out delay-75
     }
 
     .member span {
-        @apply text-xs text-gray-600 transition ease-in-out delay-150
+        @apply text-xs text-gray-600 transition ease-in-out delay-75
     }
 
     .profile-img-container {
