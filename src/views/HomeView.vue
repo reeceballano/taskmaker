@@ -4,7 +4,7 @@
         <Sidebar>
             <Widget title="Add new task">
                 <Input id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
-                <Button @handleOnclick="addTask" text="Add task" />
+                <Button :isDisabled="isDisabled" @handleOnclick="addTask" text="Add task" />
             </Widget>
 
             <Widget title="Members">
@@ -41,7 +41,7 @@
 
 <script setup>
     
-    import { ref, provide, inject, computed } from 'vue';
+    import { ref, provide, inject, computed, watch } from 'vue';
     import Todos from '../components/Todos.vue';
     import Todo from '../components/Todo.vue';
     import Profiles from '../components/Profiles.vue';
@@ -59,18 +59,22 @@
 
     
     const data = inject('todos');
-    
     const addTodo = inject('addTodo');
-
     const deleteTodo = inject('deleteTodo');
-        
     const activeTab = ref(0);
 
     provide('tab', activeTab);
 
     const newTodo = ref('');
+    const isDisabled = ref(true);
 
-    const focus = ref(null);
+    watch(newTodo, () => {
+        if(Number(newTodo.value.length) >= 3) { 
+            isDisabled.value = false 
+        } else {
+            isDisabled.value = true;
+        }
+    })
 
     const users = [
         {id: 1, name: 'Pepito Manaloto', position: 'Frontend Developer' },

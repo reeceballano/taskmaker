@@ -6,7 +6,7 @@
             :placeholder="placeholder"
             :value="modelValue"
             :id="id"
-            @change="$emit('update:modelValue', $event.target.value)"
+            @keyup="$emit('update:modelValue', $event.target.value)"
         >
     </div>
 </template>

@@ -1,8 +1,10 @@
 <template>
     <div class="flex justify-center px-5 pb-5">
         <button 
-            class="block bg-blue-700 w-full p-4 rounded shadow-lg text-white hover:bg-blue-800 transition ease-out" 
+            :class="isDisabled ? 'is-disabled' : ''"
+            class="cursor-pointer block bg-blue-700 w-full p-4 rounded shadow-lg text-white hover:bg-blue-800 active:bg-blue-900 transition ease-out" 
             @click="handleOnclick"
+            :disabled="isDisabled"
         >
             {{text}}
         </button>
@@ -10,15 +12,29 @@
 </template>
 
 <script setup>
-const { text } = defineProps({
+import { toRef, computed } from 'vue';
+
+const props = defineProps({
     text: {
         type: String,
         default: 'Button Text'
+    },
+    isDisabled: {
+        type: Boolean,
+        default: true
     }
 })
+
 const emits = defineEmits(['handleOnclick']);
 
 const handleOnclick = () => {
     emits('handleOnclick');
 }
+
 </script>
+
+<style scoped>
+    .is-disabled {
+        @apply cursor-not-allowed hover:bg-blue-500 hover:text-gray-300 bg-blue-500 text-gray-300
+    }
+</style>
