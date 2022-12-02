@@ -52,7 +52,9 @@
     import Button from '../components/Button.vue';
 
     const todos = computed(() => {
-        return data.value;
+        return data.value.sort((a,b)=>{
+            return new Date(b.created_at) - new Date(a.created_at);
+        });;
     })
 
     
@@ -61,7 +63,7 @@
     const addTodo = inject('addTodo');
         
     const activeTab = ref(0);
-    
+
     provide('tab', activeTab);
 
     const newTodo = ref('');

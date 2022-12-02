@@ -28,12 +28,11 @@ export const useTodos = () => {
             id: state.todos.length + 1,
             name: name,
             description: desc,
-            status: false
+            status: false,
+            created_at: new Date()
         }
 
-        const newTodos = state.todos.concat(todo);
-        console.log(newTodos)
-        state.todos = newTodos;
+        state.todos.push(todo)
     }
 
     const deleteTodo = (id) => {
