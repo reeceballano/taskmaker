@@ -92,9 +92,7 @@
 
     const changeTab = (user) => {
         activeTab.value = user.id;
-        
-        // CALL FILTER FUNCTION
-        filterTask(user.name);
+        activeMember.value = user.name;
     }
 
     const addTask = () => {
@@ -106,11 +104,6 @@
 
     const focusInput = () => {
         document.getElementById('newTodo').focus();
-    }
-
-    const filterTask = (name) => {
-        console.log('filter task for', name)
-        activeMember.value = name;
     }
 
 </script>
