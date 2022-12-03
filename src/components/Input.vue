@@ -31,8 +31,8 @@
     })
 </script>
 
-<style scoped>
+<style>
     .text-input {
-        @apply ring-2 rounded w-full leading-8 px-3 py-2 shadow-md transition ease-in-out focus:ring-blue-700 hover:ring-blue-600
+        @apply ring-2 rounded w-full leading-6 px-3 py-3 shadow-md transition ease-in-out outline-none focus:ring-blue-500 hover:ring-blue-400 ring-blue-100
     }
 </style>

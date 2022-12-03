@@ -30,9 +30,3 @@
         }
     })
 </script>
-
-<style scoped>
-    .text-input {
-        @apply ring-2 rounded w-full leading-8 px-3 py-2 shadow-md transition ease-in-out focus:ring-blue-700 hover:ring-blue-600
-    }
-</style>
