@@ -42,7 +42,7 @@
                     />
                 </transition-group>
             </Todos>
-            <Loadmore @handle-click="useTodo.infiniteLoop" />
+            <Loadmore v-if="!activeMember.length" @handle-click="useTodo.infiniteLoop" />
         </div>
         <!-- <Todos /> -->
     </div>
