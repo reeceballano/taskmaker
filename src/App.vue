@@ -32,6 +32,11 @@
         @apply font-roboto
     }
 
+    .default-layout {
+        @apply md:flex md:w-3/4 md:mx-auto w-full md:space-x-10 align-middle my-20
+        /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
+    }
+
     #app {
         @apply grid place-items-center h-full
     }

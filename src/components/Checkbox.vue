@@ -4,7 +4,7 @@
         :checked="status" 
         @change="update"
         name="radio" 
-        class="w-5 h-5 bg-pink-300 checked:bg-rose-500 cursor-pointer" 
+        class="checkbox" 
     />
 </template>
 
@@ -24,3 +24,9 @@ const update = () => {
 }
 
 </script>
+
+<style>
+    .checkbox {
+        @apply w-5 h-5 bg-pink-300 accent-pink-500 cursor-pointer
+    }
+</style>

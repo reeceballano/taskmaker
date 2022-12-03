@@ -1,6 +1,6 @@
 
 <template>
-    <div class="home-view">
+    <div class="default-layout">
         <Sidebar>
             <Widget title="Add new task">
                 <Input id="newTodo" placeholder="New task item" v-model="newTodo.title"/>
@@ -126,10 +126,3 @@
     }
 
 </script>
-
-<style>
-    .home-view {
-        @apply md:flex container md:space-x-10 align-middle my-20
-        /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
-    }
-</style>
