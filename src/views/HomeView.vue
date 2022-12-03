@@ -42,7 +42,7 @@
                     />
                 </transition-group>
             </Todos>
-            <Loadmore @handle-click="infiniteLoop" />
+            <Loadmore @handle-click="useTodo.infiniteLoop" />
         </div>
         <!-- <Todos /> -->
     </div>
@@ -65,18 +65,20 @@
 
     const todos = computed(() => {
         if(activeMember.value === '') {
-            return data.value.sort((a,b)=>{
+            return useTodo.todos.value.sort((a,b)=>{
                 return new Date(b.created_at) - new Date(a.created_at);
             });
         } else {
-            return data.value.filter(i => i.assignee == activeMember.value);
+            return useTodo.todos.value.filter(i => i.assignee == activeMember.value);
         }
     })
+
+    const useTodo = inject('useTodo');
     
-    const data = inject('todos');
-    const addTodo = inject('addTodo');
-    const deleteTodo = inject('deleteTodo');
-    const infiniteLoop = inject('infiniteLoop');
+    // const data = inject('todos');
+    // const addTodo = inject('addTodo');
+    // const deleteTodo = inject('deleteTodo');
+    // const infiniteLoop = inject('infiniteLoop');
     const activeTab = ref(0);
 
     provide('tab', activeTab);
@@ -115,7 +117,7 @@
 
     const addTask = () => {
         if(!newTodo.title.length) { return }
-        addTodo(newTodo.title, newTodo.description);
+        useTodo.addTodo(newTodo.title, newTodo.description);
         newTodo.title = '';
         newTodo.description = '';
         focusInput();

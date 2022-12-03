@@ -2,7 +2,7 @@
     <li @mouseover="(isShow = true)" @mouseout="isShow = false" class="task-item">
         <div class="flex gap-4">
             <div>
-                <Checkbox @update="updateTodo(todo.id)" :status="todo.status" />
+                <Checkbox @update="useTodo.updateTodo(todo.id)" :status="todo.status" />
             </div>
             <div class="flex-1">
                 <div class="info-container">
@@ -13,7 +13,7 @@
             </div>
 
             <div v-show="isShow">
-                <DeleteIcon @handleDelete="deleteTodo(todo.id)" />
+                <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" />
             </div>
         </div>
     </li>
@@ -35,9 +35,7 @@
     // Don't destructure like this, this will loose reactivity
     // const { id, name, status } = todo;
 
-    const deleteTodo = inject('deleteTodo');
-
-    const updateTodo = inject('updateTodo');
+    const useTodo = inject('useTodo');
 
     const isShow = ref(false);
 

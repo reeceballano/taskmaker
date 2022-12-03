@@ -9,14 +9,24 @@
     import { provide, onMounted } from 'vue';
     import { RouterLink, RouterView } from 'vue-router';
     import { useTodos } from './composables/useTodos';
-    
-    const { todos, fetchTodos, deleteTodo, updateTodo, addTodo, infiniteLoop } = useTodos();
+    import Footer from './components/Footer.vue';
 
-    provide('todos', todos);
-    provide('deleteTodo', deleteTodo);
-    provide('updateTodo', updateTodo);
-    provide('addTodo', addTodo);
-    provide('infiniteLoop', infiniteLoop)
+    const { 
+        todos, 
+        fetchTodos, 
+        deleteTodo, 
+        updateTodo, 
+        addTodo, 
+        infiniteLoop 
+    } = useTodos();
+
+    provide('useTodo', { todos, deleteTodo, updateTodo, addTodo, infiniteLoop })
+
+    // provide('todos', todos);
+    // provide('deleteTodo', deleteTodo);
+    // provide('updateTodo', updateTodo);
+    // provide('addTodo', addTodo);
+    // provide('infiniteLoop', infiniteLoop)
 
     onMounted(() => {
         fetchTodos();
