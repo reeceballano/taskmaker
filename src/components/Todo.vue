@@ -7,7 +7,7 @@
             <div class="flex-1">
                 <div class="info-container">
                     <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
-                    <p :class="todo.status ? 'is-completed' : ''">{{description}}</p>
+                    <p :class="todo.status ? 'is-completed' : ''">{{descTrimmer(description, 50)}}</p>
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
                 </div>
             </div>
@@ -23,6 +23,7 @@
     import { ref, computed, inject } from 'vue';
     import Checkbox from './Checkbox.vue';
     import DeleteIcon from './DeleteIcon.vue';
+    import { descTrimmer } from '../utils/useText';
 
     const { todo } = defineProps({
         todo: {
