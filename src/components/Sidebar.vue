@@ -12,7 +12,7 @@
 
 <style scoped>
     .sibebar {
-        @apply md:w-2/3 w-full mb-10
+        @apply w-full md:w-2/3 lg:w-2/3 mb-10
     }
 
     .sticky-sidebar {

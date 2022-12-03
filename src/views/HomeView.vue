@@ -74,11 +74,7 @@
     })
 
     const useTodo = inject('useTodo');
-    
-    // const data = inject('todos');
-    // const addTodo = inject('addTodo');
-    // const deleteTodo = inject('deleteTodo');
-    // const infiniteLoop = inject('infiniteLoop');
+
     const activeTab = ref(0);
 
     provide('tab', activeTab);
