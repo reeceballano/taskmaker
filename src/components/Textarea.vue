@@ -1,13 +1,13 @@
 <template>
     <div class="pt-5 pl-5 pr-5 pb-0">
-        <input 
+        <textarea 
             class="text-input" 
             type="text" 
             :placeholder="placeholder"
             :value="modelValue"
             :id="id"
             @keyup="$emit('update:modelValue', $event.target.value)"
-        >
+        ></textarea>
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center px-5 pb-5">
+    <div class="flex justify-center p-5">
         <button 
             :class="isDisabled ? 'is-disabled' : ''"
             class="primary-button" 

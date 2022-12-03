@@ -9,7 +9,7 @@ export const useTodos = () => {
 
     const fetchTodos = () => {
         const data = [
-            { id: 1, name: 'todo 1', assignee: 'Pepito', created_at: useDate(1, yesterday()), status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
+            { id: 1, name: 'todo 1', assignee: 'You', created_at: useDate(1, yesterday()), status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
             { id: 3, name: 'todo 3', assignee: 'Maria', created_at: useDate(3, yesterday()), status: true, description: 'Adaptogen plaid synth etsy cardigan selvage' },
             { id: 2, name: 'todo 2', assignee: 'Pepito', created_at: useDate(2, yesterday()), status: true, description: 'Ethical ennui paleo aliquip wayfarers keytar culpa esse sriracha hammock duis.' },
             { id: 4, name: 'todo 4', assignee: 'Ben', created_at: useDate(4, yesterday()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },

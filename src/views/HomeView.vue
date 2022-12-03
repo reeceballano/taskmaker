@@ -4,6 +4,7 @@
         <Sidebar>
             <Widget title="Add new task">
                 <Input id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
+                <Textarea id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
                 <Button :isDisabled="isDisabled" @handleOnclick="addTask" text="Add task" />
             </Widget>
 
@@ -60,7 +61,8 @@
     import Button from '../components/Button.vue';
     import Loadmore from '../components/Loadmore.vue';
     import DeleteIcon from '../components/DeleteIcon.vue';
-
+    import Textarea from '../components/Textarea.vue';
+    
     const todos = computed(() => {
         if(activeMember.value === '') {
             return data.value.sort((a,b)=>{
