@@ -9,14 +9,14 @@ export const useTodos = () => {
 
     const fetchTodos = () => {
         const data = [
-            { id: 1, name: 'todo 1', assignee: 'You', created_at: useDate(1, yesterday()), status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
-            { id: 3, name: 'todo 3', assignee: 'Maria', created_at: useDate(3, yesterday()), status: true, description: 'Adaptogen plaid synth etsy cardigan selvage' },
-            { id: 2, name: 'todo 2', assignee: 'Pepito', created_at: useDate(2, yesterday()), status: true, description: 'Ethical ennui paleo aliquip wayfarers keytar culpa esse sriracha hammock duis.' },
-            { id: 4, name: 'todo 4', assignee: 'Ben', created_at: useDate(4, yesterday()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
-            { id: 5, name: 'todo 5', assignee: 'Ben', created_at: useDate(5, yesterday()), status: true, description: 'Kombucha gatekeep aesthetic DIY cillum qui shoreditch, 3 wolf moon hella hashtag ullamco cred.' },
-            { id: 6, name: 'todo 6', assignee: 'Maria', created_at: useDate(6, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
-            { id: 7, name: 'todo 7', assignee: 'Maria', created_at: useDate(7, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
-            { id: 8, name: 'todo 8', assignee: 'Maria', created_at: useDate(8, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 1, name: 'QA this app', assignee: 'You', created_at: useDate(1, yesterday()), status: false, description: 'Stumptown everyday carry sed, squid polaroid migas austin. Dolore in schlitz cold-pressed asymmetrical. ' },
+            { id: 3, name: 'Add todo model', assignee: 'Maria', created_at: useDate(3, yesterday()), status: true, description: 'Adaptogen plaid synth etsy cardigan selvage' },
+            { id: 2, name: 'Drag and Drop feature', assignee: 'Pepito', created_at: useDate(2, yesterday()), status: true, description: 'Ethical ennui paleo aliquip wayfarers keytar culpa esse sriracha hammock duis.' },
+            { id: 4, name: 'Check user inputs on backend', assignee: 'Ben', created_at: useDate(4, yesterday()), status: false, description: 'Before they sold out forage cloud bread yes plz esse DSA ullamco nisi vape fam proident dolore.' },
+            { id: 5, name: 'Migrate fresh DB', assignee: 'Ben', created_at: useDate(5, yesterday()), status: true, description: 'Kombucha gatekeep aesthetic DIY cillum qui shoreditch, 3 wolf moon hella hashtag ullamco cred.' },
+            { id: 6, name: 'New UI/UX profile component', assignee: 'Pepito', created_at: useDate(6, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 7, name: 'Research on new color Scheme', assignee: 'Maria', created_at: useDate(7, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
+            { id: 8, name: 'Design new UI', assignee: 'Maria', created_at: useDate(8, yesterday()), status: false, description: 'Austin gatekeep food truck, keffiyeh tacos fanny pack gentrify organic.' },
         ];
 
         state.todos = data;
