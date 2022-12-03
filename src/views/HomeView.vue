@@ -8,6 +8,13 @@
             </Widget>
 
             <Widget title="Members">
+                <DeleteIcon 
+                    v-if="activeMember.length" 
+                    @handle-delete="activeMember = ''; activeTab = 0"
+                    cssStyle="absolute top-5 right-10 flex items-center text-sm"
+                >
+                    clear
+                </DeleteIcon>
                 <Profiles>
                     <ProfileCard 
                         v-for="(user) in users"
@@ -52,10 +59,10 @@
     import Input from '../components/Input.vue';
     import Button from '../components/Button.vue';
     import Loadmore from '../components/Loadmore.vue';
+    import DeleteIcon from '../components/DeleteIcon.vue';
 
     const todos = computed(() => {
         if(activeMember.value === '') {
-            console.log('no member selected')
             return data.value.sort((a,b)=>{
                 return new Date(b.created_at) - new Date(a.created_at);
             });
@@ -75,6 +82,7 @@
     const newTodo = ref('');
     const isDisabled = ref(true);
     const activeMember = ref('');
+    const isActive = ref(false);
 
     watch(newTodo, () => {
         if(Number(newTodo.value.length) >= 3) { 
@@ -93,6 +101,9 @@
     const changeTab = (user) => {
         activeTab.value = user.id;
         activeMember.value = user.name;
+        if(activeMember.value == user.name) {
+            isActive.value = true;
+        }
     }
 
     const addTask = () => {
