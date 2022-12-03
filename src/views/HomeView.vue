@@ -3,8 +3,8 @@
     <div class="home-view">
         <Sidebar>
             <Widget title="Add new task">
-                <Input id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
-                <Textarea id="newTodo" placeholder="Manganen.." v-model="newTodo"/>
+                <Input id="newTodo" placeholder="Manganen.." v-model="newTodo.title"/>
+                <Textarea id="newTodoDescription" placeholder="Agsida tayo dinengdeng" v-model="newTodo.description"/>
                 <Button :isDisabled="isDisabled" @handleOnclick="addTask" text="Add task" />
             </Widget>
 
@@ -50,7 +50,7 @@
 
 <script setup>
     
-    import { ref, provide, inject, computed, watch } from 'vue';
+    import { reactive, ref, provide, inject, computed, watch } from 'vue';
     import Todos from '../components/Todos.vue';
     import Todo from '../components/Todo.vue';
     import Profiles from '../components/Profiles.vue';
@@ -62,7 +62,7 @@
     import Loadmore from '../components/Loadmore.vue';
     import DeleteIcon from '../components/DeleteIcon.vue';
     import Textarea from '../components/Textarea.vue';
-    
+
     const todos = computed(() => {
         if(activeMember.value === '') {
             return data.value.sort((a,b)=>{
@@ -81,13 +81,17 @@
 
     provide('tab', activeTab);
 
-    const newTodo = ref('');
+    const newTodo = reactive({
+        title: '',
+        description: ''
+    });
     const isDisabled = ref(true);
     const activeMember = ref('');
-    const isActive = ref(false);
+    const isActive = ref(true);
 
     watch(newTodo, () => {
-        if(Number(newTodo.value.length) >= 3) { 
+        console.log(newTodo)
+        if(Number(newTodo.title.length) >= 3) { 
             isDisabled.value = false 
         } else {
             isDisabled.value = true;
@@ -110,9 +114,10 @@
     }
 
     const addTask = () => {
-        if(!newTodo.value.length) { return }
-        addTodo(newTodo.value);
-        newTodo.value = '';
+        if(!newTodo.title.length) { return }
+        addTodo(newTodo.title, newTodo.description);
+        newTodo.title = '';
+        newTodo.description = '';
         focusInput();
     }
 
