@@ -4,7 +4,7 @@
         <Sidebar>
             <Widget title="Add new task">
                 <Input id="newTodo" placeholder="Manganen.." v-model="newTodo.title"/>
-                <Textarea id="newTodoDescription" placeholder="Agsida tayo dinengdeng" v-model="newTodo.description"/>
+                <Textarea v-if="(newTodo.title.length >= 1)" id="newTodoDescription" placeholder="Description. e.g Agluto kan maria mabisin nakon!" v-model="newTodo.description"/>
                 <Button :isDisabled="isDisabled" @handleOnclick="addTask" text="Add task" />
             </Widget>
 
