@@ -11,9 +11,9 @@
                 <DeleteIcon 
                     v-if="activeMember.length" 
                     @handle-delete="activeMember = ''; activeTab = 0"
-                    cssStyle="absolute top-5 right-10 flex items-center text-sm"
+                    cssStyle="absolute top-6 right-5 flex items-center justify-center text-xs"
                 >
-                    clear
+                    CLEAR
                 </DeleteIcon>
                 <Profiles>
                     <ProfileCard 
