@@ -33,7 +33,7 @@
     }
 
     #app {
-        @apply grid place-items-center h-full overflow-scroll
+        @apply grid place-items-center h-full
     }
 
     .section-title {

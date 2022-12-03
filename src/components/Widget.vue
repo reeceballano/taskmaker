@@ -18,6 +18,6 @@ const { title } = defineProps({
 
 <style>
     .widget-item {
-        @apply mb-5 bg-white rounded-lg drop-shadow-2xl
+        @apply mb-5 bg-white rounded-lg drop-shadow-2xl relative
     }
 </style>
