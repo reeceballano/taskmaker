@@ -28,6 +28,6 @@ const handleDelete = () => {
 
 <style scoped>
     .delete-icon {
-        @apply flex justify-center items-center justify-around
+        @apply flex items-center justify-center text-xs
     }
 </style>

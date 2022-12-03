@@ -11,7 +11,7 @@
                 <DeleteIcon 
                     v-if="activeMember.length" 
                     @handle-delete="activeMember = ''; activeTab = 0"
-                    cssStyle="absolute top-6 right-5 flex items-center justify-center text-xs"
+                    cssStyle="absolute top-6 right-5"
                 >
                     CLEAR
                 </DeleteIcon>
@@ -93,9 +93,10 @@
     })
 
     const users = [
-        {id: 1, name: 'Pepito', position: 'Frontend Developer' },
-        {id: 2, name: 'Maria', position: 'Designer' },
-        {id: 3, name: 'Ben', position: 'Backend Developer' },
+        {id: 1, name: 'You', position: 'FullStack Developer' },
+        {id: 2, name: 'Pepito', position: 'Frontend Developer' },
+        {id: 3, name: 'Maria', position: 'Designer' },
+        {id: 4, name: 'Ben', position: 'Backend Developer' },
     ]
 
     const changeTab = (user) => {
