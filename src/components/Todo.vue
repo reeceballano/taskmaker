@@ -7,9 +7,9 @@
             <div class="flex-1">
                 <div class="info-container">
                     <RouterLink :to="{ name: 'todo', params: { id: todo.id} }">
-                        <h4 :class="todo.status ? 'is-completed' : ''">{{todo.name}}</h4>
+                        <h4 :class="todo.status ? 'is-completed' : ''">{{textTrimmer(todo.name, 20)}}</h4>
                     </RouterLink>
-                    <p :class="todo.status ? 'is-completed' : ''">{{descTrimmer(description, 50)}}</p>
+                    <p :class="todo.status ? 'is-completed' : ''">{{textTrimmer(description, 50)}}</p>
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
                 </div>
             </div>
@@ -26,7 +26,7 @@
     import { RouterLink } from 'vue-router';
     import Checkbox from './Checkbox.vue';
     import DeleteIcon from './DeleteIcon.vue';
-    import { descTrimmer } from '../utils/useText';
+    import { textTrimmer } from '../utils/useText';
 
     const { todo } = defineProps({
         todo: {

@@ -1,5 +1,6 @@
-export const descTrimmer = (desc, limit = 20) => {
+export const textTrimmer = (desc, limit = 20) => {
     const trimText = desc.trim();
     const truncated = trimText.substring(0, limit);
-    return `${truncated}...`;
+    const trailing = desc.length < limit ? '' : '..';
+    return `${truncated}${trailing}`;
 }
