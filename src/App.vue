@@ -1,7 +1,9 @@
 
 <template>
     <div class="container">
-        <RouterView />
+        <transition name="list">
+            <RouterView />
+        </transition>
         <Footer />
     </div>
 </template>

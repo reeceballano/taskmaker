@@ -16,6 +16,6 @@
     }
 
     .sticky-sidebar {
-        @apply md:sticky md:top-5 z-30 w-full align-middle
+        @apply md:sticky md:top-5 z-30 w-full align-middle relative
     }
 </style>
