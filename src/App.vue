@@ -1,9 +1,7 @@
 
 <template>
     <div class="container">
-        <transition name="list">
-            <RouterView />
-        </transition>
+        <RouterView />
         <Footer />
     </div>
 </template>
@@ -20,10 +18,20 @@
         deleteTodo, 
         updateTodo, 
         addTodo, 
-        infiniteLoop 
+        infiniteLoop,
+        fetchSingleTodo,
+        todo 
     } = useTodos();
 
-    provide('useTodo', { todos, deleteTodo, updateTodo, addTodo, infiniteLoop })
+    provide('useTodo', { 
+        todos, 
+        deleteTodo, 
+        updateTodo, 
+        addTodo, 
+        infiniteLoop,
+        fetchSingleTodo,
+        todo 
+    })
 
     // provide('todos', todos);
     // provide('deleteTodo', deleteTodo);

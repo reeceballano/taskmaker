@@ -4,6 +4,7 @@ import { useDate, yesterday } from '../utils/useDate';
 export const useTodos = () => {
     const state = reactive({
         todos: [],
+        todo: {},
         isLoading: false
     })
 
@@ -61,12 +62,19 @@ export const useTodos = () => {
         state.todos = todos;
     }
 
+    const fetchSingleTodo = (id) => {
+        const todo = state.todos.find(i => i.id === Number(id));
+        console.log(todo)
+        state.todo = todo;
+    }
+
     return {
         ...toRefs(state),
         fetchTodos,
         deleteTodo,
         updateTodo,
         addTodo,
-        infiniteLoop
+        infiniteLoop,
+        fetchSingleTodo,
     }
 }
