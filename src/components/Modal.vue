@@ -12,7 +12,7 @@
             </div>
             <div class="modal-buttons">
                 <button @click="handleOk" class="modal-ok-btn">Ok</button>
-                <button @click="handleCancel" class="modal-cancel-btn">Cancel</button>
+                <button @click="handleCancelModal" class="modal-cancel-btn">Cancel</button>
             </div>
         </div>
     </div>
@@ -32,14 +32,14 @@ const { title, description } = defineProps({
     }
 })
 
-const emits = defineEmits(['handleOk, handleCancel']);
+const emits = defineEmits(['handleOk', 'handleCancelModal']);
 
 const handleOk = () => {
     emits('handleOk');
 }
 
-const handleCancel = () => {
-    emits('handleCancel');
+const handleCancelModal = () => {
+    emits('handleCancelModal');
 }
 </script>
 

@@ -19,7 +19,7 @@
                     :title="`Are you sure you want to delete?`"
                     :description="`Deleting '${todo.name}' task will permanently be deleted in database`"
                     @handleOk="useTodo.deleteTodo(todo.id)"
-                    @handleCancel="(openModal = false)" />
+                    @handleCancelModal="(openModal = false)" />
             </Teleport>
 
             <div v-show="isShow">
@@ -58,7 +58,6 @@
         if(todo.description) { return todo.description }
         return 'no description'
     })
-    
 </script>
 
 <style>
