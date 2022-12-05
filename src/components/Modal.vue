@@ -38,7 +38,7 @@ const handleCancel = () => {
     }
 
     .modal {
-        @apply w-1/3 mx-auto bg-white shadow-lg rounded-lg  top-1/4 fixed left-0 right-0
+        @apply md:w-1/3 w-11/12 mx-auto bg-white shadow-lg rounded-lg  top-1/4 fixed left-0 right-0
     }
 
     .modal h3 {
