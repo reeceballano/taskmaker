@@ -11,6 +11,7 @@
     import { RouterLink, RouterView } from 'vue-router';
     import { useTodos } from './composables/useTodos';
     import Footer from './components/Footer.vue';
+    import Modal from './components/Modal.vue';
 
     const { 
         todos, 
