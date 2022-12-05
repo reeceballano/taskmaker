@@ -11,8 +11,8 @@
                 </div>
             </div>
             <div class="modal-buttons">
-                <button class="modal-ok-btn">Ok</button>
-                <button class="modal-cancel-btn">Cancel</button>
+                <button @click="handleOk" class="modal-ok-btn">Ok</button>
+                <button @click="handleCancel" class="modal-cancel-btn">Cancel</button>
             </div>
         </div>
     </div>
@@ -20,11 +20,21 @@
 
 <script setup>
 import IconModalWarning from './icons/IconModalWarning.vue';
+
+const emits = defineEmits(['handleOk, handleCancel']);
+
+const handleOk = () => {
+    emits('handleOk');
+}
+
+const handleCancel = () => {
+    emits('handleCancel');
+}
 </script>
 
 <style scoped>
     .modal-container {
-        @apply w-full h-screen fixed z-50 bg-slate-200/50 left-0 right-0
+        @apply w-full h-screen fixed z-50 bg-slate-200/50 left-0 right-0 top-0
     }
 
     .modal {

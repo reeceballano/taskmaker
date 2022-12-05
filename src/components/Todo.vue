@@ -13,9 +13,16 @@
                     <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
                 </div>
             </div>
+            <Teleport to="#app">
+                <Modal 
+                    v-if="openModal" 
+                    @handleOk="useTodo.deleteTodo(todo.id)"
+                    @handleCancel="(openModal = false)" />
+            </Teleport>
 
             <div v-show="isShow">
-                <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" />
+                <!-- <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" /> -->
+                <DeleteIcon @handleDelete="(openModal = true)" />
             </div>
         </div>
     </li>
@@ -27,6 +34,7 @@
     import Checkbox from './Checkbox.vue';
     import DeleteIcon from './DeleteIcon.vue';
     import { textTrimmer } from '../utils/useText';
+    import Modal from './Modal.vue';
 
     const { todo } = defineProps({
         todo: {
@@ -41,6 +49,8 @@
     const useTodo = inject('useTodo');
 
     const isShow = ref(false);
+
+    const openModal = ref(false)
 
     const description = computed(() => {
         if(todo.description) { return todo.description }
