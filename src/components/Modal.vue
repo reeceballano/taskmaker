@@ -6,8 +6,8 @@
                     <IconModalWarning />
                 </div>
                 <div class="modal-info">
-                    <h3>Modal Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque deleniti, nihil sit</p>
+                    <h3>{{title}}</h3>
+                    <p>{{description}}</p>
                 </div>
             </div>
             <div class="modal-buttons">
@@ -20,6 +20,17 @@
 
 <script setup>
 import IconModalWarning from './icons/IconModalWarning.vue';
+
+const { title, description } = defineProps({
+    title: {
+        type: String,
+        default: 'Modal Title'
+    },
+    description: {
+        type: String,
+        default: 'Modal description'
+    }
+})
 
 const emits = defineEmits(['handleOk, handleCancel']);
 
@@ -42,7 +53,7 @@ const handleCancel = () => {
     }
 
     .modal h3 {
-        @apply text-base font-semibold
+        @apply text-base font-semibold mb-3
     }
 
     .modal-elements {
@@ -50,7 +61,7 @@ const handleCancel = () => {
     }
 
     .modal-buttons {
-        @apply w-full p-5 gap-4 flex justify-around bg-slate-50
+        @apply w-full p-5 gap-1 flex justify-around bg-slate-50
     }
 
     .modal-buttons button {
