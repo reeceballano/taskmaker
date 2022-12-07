@@ -2,8 +2,11 @@
     <div class="modal-container">
         <div class="modal">
             <div class="modal-elements">
-                <div class="modal-icon">
-                    <IconModalWarning />
+                <div v-if="messageType == 'success'" class="modal-icon">
+                    <IconCheck />
+                </div>
+                <div v-if="messageType == 'warning'" class="modal-icon">
+                    <IconWarning />
                 </div>
                 <div class="modal-info">
                     <h3>{{title}}</h3>
@@ -19,7 +22,9 @@
 </template>
 
 <script setup>
-import IconModalWarning from './icons/IconModalWarning.vue';
+import { computed } from 'vue';
+import IconWarning from './icons/IconWarning.vue';
+import IconCheck from './icons/IconCheck.vue';
 
 const { title, description } = defineProps({
     title: {
@@ -29,6 +34,10 @@ const { title, description } = defineProps({
     description: {
         type: String,
         default: 'Modal description'
+    },
+    messageType: {
+        type: String,
+        default: 'success'
     }
 })
 
@@ -41,6 +50,7 @@ const handleOk = () => {
 const handleCancelModal = () => {
     emits('handleCancelModal');
 }
+
 </script>
 
 <style scoped>

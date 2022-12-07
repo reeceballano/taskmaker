@@ -16,6 +16,7 @@
             <Teleport to="#app">
                 <Modal 
                     v-if="openModal" 
+                    messageType="warning"
                     :title="`Are you sure you want to delete?`"
                     :description="`Deleting '${todo.name}' task will permanently be deleted in database`"
                     @handleOk="useTodo.deleteTodo(todo.id)"
