@@ -25,7 +25,7 @@
 
             <div v-show="isShow">
                 <!-- <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" /> -->
-                <DeleteIcon @handleDelete="(openModal = true)" />
+                <DeleteButton @handleDelete="(openModal = true)" />
             </div>
         </div>
     </li>
@@ -35,7 +35,7 @@
     import { ref, computed, inject } from 'vue';
     import { RouterLink } from 'vue-router';
     import Checkbox from './Checkbox.vue';
-    import DeleteIcon from './DeleteIcon.vue';
+    import DeleteButton from './DeleteButton.vue';
     import { textTrimmer } from '../utils/useText';
     import Modal from './Modal.vue';
 
