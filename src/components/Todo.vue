@@ -4,15 +4,15 @@
             <div>
                 <Checkbox @update="useTodo.updateTodo(todo.id)" :status="todo.status" />
             </div>
-            <RouterLink :to="{ name: 'todo', params: { id: todo.id} }">
-                <div class="flex-1">
+            <div class="flex-1">
+                <RouterLink :to="{ name: 'todo', params: { id: todo.id} }">
                     <div class="info-container">
                         <h4 :class="todo.status ? 'is-completed' : ''">{{textTrimmer(todo.name, 20)}}</h4>
                         <p :class="todo.status ? 'is-completed' : ''">{{textTrimmer(description, 50)}}</p>
                         <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
                     </div>
-                </div>
-            </RouterLink>
+                </RouterLink>
+            </div>
             <Teleport to="#app">
                 <Modal 
                     v-if="openModal" 
@@ -23,7 +23,7 @@
                     @handleCancelModal="(openModal = false)" />
             </Teleport>
 
-            <div v-show="isShow">
+            <div>
                 <!-- <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" /> -->
                 <DeleteButton @handleDelete="(openModal = true)" />
             </div>
