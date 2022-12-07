@@ -5,7 +5,6 @@
             <Widget title="Todo Details">
                 <TodoInfo :todo="todo" />
             </Widget>
-
         </Sidebar>
 
 

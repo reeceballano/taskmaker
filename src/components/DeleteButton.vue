@@ -1,5 +1,5 @@
 <template>
-    <button class="delete-btn" @click="handleDelete">
+    <button :class="cssStyle" class="delete-btn" @click="handleDelete">
         <span class="mr-1">
             <slot />
         </span>
@@ -13,6 +13,12 @@
 <script setup>
 import { computed } from 'vue';
 import IconClose from './icons/IconClose.vue';
+
+const { cssStyle } = defineProps({
+    cssStyle: {
+        type: String
+    }
+})
 
 const emits = defineEmits(['handleDelete']);
 
