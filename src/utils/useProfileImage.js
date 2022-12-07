@@ -4,6 +4,10 @@ const randomID = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const imgSrc = (id) => {
-    return `https://picsum.photos/id/${id}/200/200`
+export const imgSrc = async (id) => {
+    return await new Promise((resolve) => {
+        setTimeout(() => {
+            return resolve(`https://picsum.photos/id/${id}/200/200`);
+        },1500)
+    })
 }

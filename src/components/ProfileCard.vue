@@ -5,7 +5,14 @@
         :class="[Number(currentTab) === Number(user.id) ? 'member-active' : '', background]" 
     >
         <div class="profile-img-container">
-            <ProfileImage :id="user.id" />
+            <Suspense>
+                <template #default>
+                    <ProfileImage :id="user.id" />
+                </template>
+                <template #fallback>
+                    <IconProfileImage class="delay-75 animate-pulse stroke-slate-300" />
+                </template>
+            </Suspense>
         </div>
         <div class="profile-info-container">
             <h4>{{user.name}}</h4>
@@ -15,8 +22,9 @@
 </template>
 
 <script setup>
-import { ref, inject, computed } from 'vue';
+import { ref, inject, computed, Suspense } from 'vue';
 import ProfileImage from './ProfileImage.vue';
+import IconProfileImage from '../components/icons/IconProfileImage.vue';
 
 const { user } = defineProps({
     user: {
