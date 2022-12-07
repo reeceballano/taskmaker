@@ -23,7 +23,7 @@
                     @handleCancelModal="(openModal = false)" />
             </Teleport>
 
-            <div>
+            <div v-show="isShow">
                 <!-- <DeleteIcon @handleDelete="useTodo.deleteTodo(todo.id)" /> -->
                 <DeleteButton @handleDelete="(openModal = true)" />
             </div>
