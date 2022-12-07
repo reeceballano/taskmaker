@@ -5,7 +5,7 @@
         :class="[Number(currentTab) === Number(user.id) ? 'member-active' : '', background]" 
     >
         <div class="profile-img-container">
-            <ProfileImage />
+            <ProfileImage :id="user.id" />
         </div>
         <div class="profile-info-container">
             <h4>{{user.name}}</h4>
