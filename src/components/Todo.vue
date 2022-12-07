@@ -4,15 +4,15 @@
             <div>
                 <Checkbox @update="useTodo.updateTodo(todo.id)" :status="todo.status" />
             </div>
-            <div class="flex-1">
-                <div class="info-container">
-                    <RouterLink :to="{ name: 'todo', params: { id: todo.id} }">
+            <RouterLink :to="{ name: 'todo', params: { id: todo.id} }">
+                <div class="flex-1">
+                    <div class="info-container">
                         <h4 :class="todo.status ? 'is-completed' : ''">{{textTrimmer(todo.name, 20)}}</h4>
-                    </RouterLink>
-                    <p :class="todo.status ? 'is-completed' : ''">{{textTrimmer(description, 50)}}</p>
-                    <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
+                        <p :class="todo.status ? 'is-completed' : ''">{{textTrimmer(description, 50)}}</p>
+                        <span :class="todo.status ? 'is-completed' : ''">Assigned to: {{ todo.assignee }}</span>
+                    </div>
                 </div>
-            </div>
+            </RouterLink>
             <Teleport to="#app">
                 <Modal 
                     v-if="openModal" 
