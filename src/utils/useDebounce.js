@@ -1,4 +1,4 @@
-export const useDebounce = (func, wait = 3000) => {
+export const useDebounce = (func, wait = 300) => {
     let timeout;
 
     clearTimeout(timeout);
