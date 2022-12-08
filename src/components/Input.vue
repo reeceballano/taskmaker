@@ -6,12 +6,14 @@
             :placeholder="placeholder"
             :value="modelValue"
             :id="id"
-            @keyup="$emit('update:modelValue', $event.target.value)"
+            @keyup="useDebounce(() => $emit('update:modelValue', $event.target.value))"
         >
     </div>
 </template>
 
 <script setup>
+    import { useDebounce } from '../utils/useDebounce';
+
     const { id, value, modelValue } = defineProps({
         id: {
             type: String,
