@@ -8,6 +8,10 @@
                 <Button :isDisabled="isDisabled" @handleOnclick="addTask" text="Add task" />
             </Widget>
 
+            <Widget title="Search">
+                <Input id="search" placeholder="Search tasks" v-model="search"/>
+            </Widget>
+
             <Widget title="Members">
                 <DeleteIcon 
                     v-if="activeMember.length" 
@@ -68,7 +72,9 @@
             return useTodo.todos.value.sort((a,b)=>{
                 return new Date(b.created_at) - new Date(a.created_at);
             });
-        } else {
+        } 
+        
+        if(activeMember.value) {
             return useTodo.todos.value.filter(i => i.assignee == activeMember.value);
         }
     })
@@ -79,6 +85,7 @@
 
     provide('tab', activeTab);
 
+    const search = ref('');
     const newTodo = reactive({
         title: '',
         description: ''
@@ -94,6 +101,10 @@
         } else {
             isDisabled.value = true;
         }
+    })
+
+    watch(search, () => {
+        console.log(search.value)
     })
 
     const users = [
