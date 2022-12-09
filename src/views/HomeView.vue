@@ -9,7 +9,7 @@
             </Widget>
 
             <Widget title="Search">
-                <Input id="search" placeholder="Search tasks" v-model="search"/>
+                <Input class="pb-5" id="search" placeholder="Search tasks" v-model="search"/>
             </Widget>
 
             <Widget title="Members">
@@ -68,14 +68,22 @@
     import Textarea from '../components/Textarea.vue';
 
     const todos = computed(() => {
-        if(activeMember.value === '') {
+        // CHECK IF NO ACTIVE MEMBER IS SELECTED AND SEARCH INPUT DOESNT HAVE VALUE
+        // THEN RETUR THE FULL LIST OF TODOS ARRAY
+        if(activeMember.value === '' && search.value.length == 0) {
             return useTodo.todos.value.sort((a,b)=>{
                 return new Date(b.created_at) - new Date(a.created_at);
             });
         } 
         
+        // FILTER THE TODOS LIST OF SELECTED MEMBER/USER
         if(activeMember.value) {
             return useTodo.todos.value.filter(i => i.assignee == activeMember.value);
+        }
+
+        // IF SEARCH INPUT CONTAINS A VALUE THEN WE WILL RETURN THE FILTERED RESULTS
+        if(searchResults.value.length && activeMember.value === '') {
+            return searchResults.value;
         }
     })
 
@@ -86,6 +94,7 @@
     provide('tab', activeTab);
 
     const search = ref('');
+    const searchResults = ref([]);
     const newTodo = reactive({
         title: '',
         description: ''
@@ -103,8 +112,13 @@
         }
     })
 
-    watch(search, () => {
-        console.log(search.value)
+    watch(search, (newVal, oldVal) => {
+        console.log('searching...', newVal)
+        if(search.value) {
+            const searchData = useTodo.todos.value.filter(item => item.name.toLowerCase().includes(newVal.toLowerCase()));
+            searchResults.value = searchData;
+            //console.log(searchData)
+        }
     })
 
     const users = [
