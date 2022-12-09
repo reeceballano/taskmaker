@@ -5,6 +5,4 @@ export const useDebounce = (func, wait = 300) => {
     timeout = setTimeout(() => {
         func();
     }, wait);
-
-
 }
