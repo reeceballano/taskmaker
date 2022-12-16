@@ -20,7 +20,8 @@
         addTodo, 
         infiniteLoop,
         fetchSingleTodo,
-        todo 
+        todo,
+        searchTodos 
     } = useTodos();
 
     provide('useTodo', { 
@@ -30,7 +31,8 @@
         addTodo, 
         infiniteLoop,
         fetchSingleTodo,
-        todo 
+        todo, 
+        searchTodos
     })
 
     // provide('todos', todos);

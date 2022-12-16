@@ -68,6 +68,11 @@ export const useTodos = () => {
         state.todo = todo;
     }
 
+    const searchTodos = (search) => {
+        const results = state.todos.filter(todo => todo.name.toLowerCase().includes(search.toLowerCase()));
+        return results;
+    }
+
     return {
         ...toRefs(state),
         fetchTodos,
@@ -76,5 +81,6 @@ export const useTodos = () => {
         addTodo,
         infiniteLoop,
         fetchSingleTodo,
+        searchTodos
     }
 }

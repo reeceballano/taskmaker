@@ -115,9 +115,10 @@
     watch(search, (newVal, oldVal) => {
         console.log('searching...', newVal)
         if(search.value) {
-            const searchData = useTodo.todos.value.filter(item => item.name.toLowerCase().includes(newVal.toLowerCase()));
-            searchResults.value = searchData;
+            // const searchData = useTodo.todos.value.filter(item => item.name.toLowerCase().includes(newVal.toLowerCase()));
+            // searchResults.value = searchData;
             //console.log(searchData)
+            searchResults.value = useTodo.searchTodos(search.value);
         }
     })
 
