@@ -1,5 +1,5 @@
 <template>
-    <div class="sibebar">
+    <div class="sidebar">
         <div class="sticky-sidebar">
             <slot />
         </div>
@@ -11,7 +11,7 @@
 </script>
 
 <style scoped>
-    .sibebar {
+    .sidebar {
         @apply w-full md:w-2/3 lg:w-2/3 mb-10
     }
 
