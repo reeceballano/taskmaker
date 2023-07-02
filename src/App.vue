@@ -56,7 +56,7 @@
     }
 
     .default-layout {
-        @apply md:flex md:w-10/12 md:mx-auto w-full md:space-x-10 align-middle my-20
+        @apply md:flex md:w-10/12 md:mx-auto w-full md:space-x-10 align-middle my-20 items-start
         /* @apply flex container py-20 space-x-20 bg-white align-middle rounded-lg drop-shadow-2xl */
     }
 
